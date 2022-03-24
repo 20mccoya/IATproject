@@ -153,7 +153,7 @@ DrawFormattedText(window, 'press any key to continue', screenXpixels * 0.33,...
 % Flip to the screen
 Screen('Flip', window);
 KbStrokeWait;
-% Task 1
+% Trial 1
 % Load Instructions
 Screen('TextSize', window, 20);
 Screen('TextFont', window, 'Georgia');
@@ -464,6 +464,8 @@ elseif keyIsDown && key_pressed ~= 101 %key code for E
     % Draw image to the screen
     Screen('DrawTexture', window, bm14Texture, [], [], 0); 
     %draw X on screen
+        Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
     % Flip image to the screen 
     Screen('Flip', window);
@@ -534,6 +536,8 @@ elseif keyIsDown && key_pressed ~= 101 %key code for E
     % Draw image to the screen
     Screen('DrawTexture', window, wf3Texture, [], [], 0); 
     %draw X on screen
+        Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
     % Flip image to the screen 
     Screen('Flip', window); 
@@ -604,6 +608,8 @@ elseif keyIsDown && key_pressed ~= 105 %key code for I
     % Draw image to the screen
     Screen('DrawTexture', window, bf23Texture, [], [], 0);
     %draw X on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
     % Flip image to the screen 
     Screen('Flip', window); 
@@ -673,7 +679,10 @@ elseif keyIsDown && key_pressed ~= 105 %key code for I
     % Make image into a texture 
     bm23Texture = Screen('MakeTexture', window, bm23); 
     % Draw image to the screen
-    Screen('DrawTexture', window, bm23Texture, [], [], 0); 
+    Screen('DrawTexture', window, bm23Texture, [], [], 0);
+    %Draw X on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
     % Flip image to the screen 
     Screen('Flip', window); 
