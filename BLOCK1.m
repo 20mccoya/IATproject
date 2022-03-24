@@ -174,7 +174,7 @@ DrawFormattedText(window, 'Black Americans', 'right' ,...
 %Load Image 1 
 bf14=imread("bf14.jpg"); 
 % Get the size of the image 
-[s1, s2, s3]=size(bf14)
+[s1, s2, s3]=size(bf14);
 % Make image into a texture 
 bf14Texture = Screen('MakeTexture', window, bf14); 
 % Draw image to the screen
@@ -191,7 +191,6 @@ while tryagain
 if keyIsDown && key_pressed == 101 %or some other code indicating keypress
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    tryagain = false;
     %Load Instructions (Image 2) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -212,14 +211,14 @@ if keyIsDown && key_pressed == 101 %or some other code indicating keypress
     % Load Image 2
     wm1=imread("wm1.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(wm1)
+    [s1, s2, s3]=size(wm1);
     % Make image into a texture 
     wm1Texture = Screen('MakeTexture', window, wm1); 
     % Draw image to teh screen
     Screen('DrawTexture', window, wm1Texture, [], [], 0); 
     % Flip image to the screen 
-    Screen('Flip', window); 
-
+    Screen('Flip', window);
+    tryagain = false;
 elseif keyIsDown && key_pressed ~= 101
     %construct an identical display but w/ an X
     % Load Instructions
@@ -246,7 +245,7 @@ elseif keyIsDown && key_pressed ~= 101
     %Load Image 1 
     bf14=imread("bf14.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(bf14)
+    [s1, s2, s3]=size(bf14);
     % Make image into a texture 
     bf14Texture = Screen('MakeTexture', window, bf14); 
     % Draw image to the screen
@@ -266,7 +265,6 @@ while tryagain
 if keyIsDown && key_pressed == 105 %or some other code indicating keypress
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    tryagain = false;
     %Load Instructions (Image 3) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -287,13 +285,14 @@ if keyIsDown && key_pressed == 105 %or some other code indicating keypress
     %Load image 3
     wf2=imread("wf2.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(wf2)
+    [s1, s2, s3]=size(wf2);
     % Make image into a texture 
     wf2Texture = Screen('MakeTexture', window, wf2); 
     % Draw image to the screen
     Screen('DrawTexture', window, wf2Texture, [], [], 0); 
     % Flip iamge to the screen 
-    Screen('Flip', window); 
+    Screen('Flip', window);
+    tryagain = false;
 elseif keyIsDown && key_pressed ~= 105
     %Load Instructions (Image 2) 
     Screen('TextSize', window, 20);
@@ -315,7 +314,7 @@ elseif keyIsDown && key_pressed ~= 105
     % Load Image 2
     wm1=imread("wm1.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(wm1)
+    [s1, s2, s3]=size(wm1);
     % Make image into a texture 
     wm1Texture = Screen('MakeTexture', window, wm1); 
     % Draw image to teh screen
@@ -338,7 +337,6 @@ while tryagain
 if keyIsDown && key_pressed == 101 %key code for E
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    tryagain = false;
     %Load Instructions (Image 4) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -359,13 +357,14 @@ if keyIsDown && key_pressed == 101 %key code for E
     %Load image 4
     bm14=imread("bm14.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(bm14)
+    [s1, s2, s3]=size(bm14);
     % Make image into a texture 
     bm14Texture = Screen('MakeTexture', window, bm14); 
     % Draw image to the screen
     Screen('DrawTexture', window, bm14Texture, [], [], 0); 
     % Flip image to the screen 
-    Screen('Flip', window); 
+    Screen('Flip', window);
+     tryagain = false;
 elseif keyIsDown && key_pressed ~= 101 %key code for E
     %Load Instructions (Image 3) 
     Screen('TextSize', window, 20);
@@ -387,7 +386,7 @@ elseif keyIsDown && key_pressed ~= 101 %key code for E
     %Load image 3
     wf2=imread("wf2.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(wf2)
+    [s1, s2, s3]=size(wf2);
     % Make image into a texture 
     wf2Texture = Screen('MakeTexture', window, wf2); 
     % Draw image to the screen
@@ -410,7 +409,6 @@ while tryagain
 if keyIsDown && key_pressed == 101 %key code for E
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    tryagain = false;
     %Load Instructions (Image 5) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -431,13 +429,14 @@ if keyIsDown && key_pressed == 101 %key code for E
     %Load Image 5
     wf3=imread("wf3.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(wf3)
+    [s1, s2, s3]=size(wf3);
     % Make image into a texture 
     wf3Texture = Screen('MakeTexture', window, wf3); 
     % Draw image to the screen
     Screen('DrawTexture', window, wf3Texture, [], [], 0); 
     % Flip image to the screen 
-    Screen('Flip', window); 
+    Screen('Flip', window);
+    tryagain = false;
 elseif keyIsDown && key_pressed ~= 101 %key code for E
     %Load Instructions (Image 4) 
     Screen('TextSize', window, 20);
@@ -459,7 +458,7 @@ elseif keyIsDown && key_pressed ~= 101 %key code for E
     %Load image 4
     bm14=imread("bm14.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(bm14)
+    [s1, s2, s3]=size(bm14);
     % Make image into a texture 
     bm14Texture = Screen('MakeTexture', window, bm14); 
     % Draw image to the screen
@@ -480,7 +479,6 @@ while tryagain
 if keyIsDown && key_pressed == 101 %key code for E
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    tryagain = false;
     %Load Instructions (Image 6) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -501,13 +499,14 @@ if keyIsDown && key_pressed == 101 %key code for E
     %Load Image 6
     bf23=imread("bf23.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(bf23)
+    [s1, s2, s3]=size(bf23);
     % Make image into a texture 
     bf23Texture = Screen('MakeTexture', window, bf23); 
     % Draw image to the screen
     Screen('DrawTexture', window, bf23Texture, [], [], 0); 
     % Flip image to the screen 
-    Screen('Flip', window); 
+    Screen('Flip', window);
+    tryagain = false;
 elseif keyIsDown && key_pressed ~= 101 %key code for E
     %Load Instructions (Image 5) 
     Screen('TextSize', window, 20);
@@ -529,7 +528,7 @@ elseif keyIsDown && key_pressed ~= 101 %key code for E
     %Load Image 5
     wf3=imread("wf3.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(wf3)
+    [s1, s2, s3]=size(wf3);
     % Make image into a texture 
     wf3Texture = Screen('MakeTexture', window, wf3); 
     % Draw image to the screen
@@ -550,7 +549,6 @@ while tryagain
 if keyIsDown && key_pressed == 105 %key code for I
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    tryagain = false;
     %Load Instructions (Image 7) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -571,13 +569,14 @@ if keyIsDown && key_pressed == 105 %key code for I
     % Load Image 7
     bm23=imread("bm23.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(bm23)
+    [s1, s2, s3]=size(bm23);
     % Make image into a texture 
     bm23Texture = Screen('MakeTexture', window, bm23); 
     % Draw image to the screen
     Screen('DrawTexture', window, bm23Texture, [], [], 0); 
     % Flip image to the screen 
-    Screen('Flip', window); 
+    Screen('Flip', window);
+    tryagain = false;
 elseif keyIsDown && key_pressed ~= 105 %key code for I
     %Load Instructions (Image 6) 
     Screen('TextSize', window, 20);
@@ -599,7 +598,7 @@ elseif keyIsDown && key_pressed ~= 105 %key code for I
     %Load Image 6
     bf23=imread("bf23.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(bf23)
+    [s1, s2, s3]=size(bf23);
     % Make image into a texture 
     bf23Texture = Screen('MakeTexture', window, bf23); 
     % Draw image to the screen
@@ -621,7 +620,6 @@ while tryagain
 if keyIsDown && key_pressed == 105 %key code for I
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    tryagain = false;
     %Load Instructions (Image 8) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -642,13 +640,14 @@ if keyIsDown && key_pressed == 105 %key code for I
     % Load Image 8
     wm4=imread("wm4.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(wm4)
+    [s1, s2, s3]=size(wm4);
     % Make image into a texture 
     wm4Texture = Screen('MakeTexture', window, wm4); 
     % Draw image to the screen
     Screen('DrawTexture', window, wm4Texture, [], [], 0); 
     % Flip image to the screen 
-    Screen('Flip', window); 
+    Screen('Flip', window);
+    tryagain = false;
 elseif keyIsDown && key_pressed ~= 105 %key code for I
     %Load Instructions (Image 7) 
     Screen('TextSize', window, 20);
@@ -670,7 +669,7 @@ elseif keyIsDown && key_pressed ~= 105 %key code for I
     % Load Image 7
     bm23=imread("bm23.jpg"); 
     % Get the size of the image 
-    [s1, s2, s3]=size(bm23)
+    [s1, s2, s3]=size(bm23);
     % Make image into a texture 
     bm23Texture = Screen('MakeTexture', window, bm23); 
     % Draw image to the screen
