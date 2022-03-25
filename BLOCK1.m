@@ -692,6 +692,12 @@ elseif keyCode(1,8) ~= 1
 end
 end
 
+% Hayley spent 6 hours writing code for trial 2; this includes the time spent in office hours trying to get
+% the keypress functions on her laptop to work. Hayley spent another 2 hours debugging her code. Because her keypresses
+% were not working, Paloma ran the code on her laptop and sent Hayley the changes that needed to be made. This code
+% requires participants to press E when presented with an image of a harmless object and to press I when presented with 
+% an image of a weapon. 
+
 % START TRIAL 2
 % Load Instructions (Image 1)
 Screen('TextSize', window, 20);
@@ -1543,6 +1549,10 @@ while tryagain
         tryagain=true; 
     end 
 end
+
+%% Hayley spent 4 hours writing this code and another hour debugging it. This code requires particpants to 
+% press E when presented with an image of a White American or a harmless object and to press I when presented 
+% with an image of a Black American or a weapon. It also records their reaction times. 
 
 % START TRIAL 3
 % Load Instructions (Image 1) 
@@ -2703,6 +2713,9 @@ while tryagain
         tryagain=true; 
     end 
 end
+
+% Hayley spent 4 hours writing this code and another hour debugging it. This code requires participants to press 
+% E when presented with an image of a Black American and to press I when presented with an image of a White American. 
 
 % START BLOCK 4
 % Load Instructions (Image 1) 
