@@ -792,7 +792,7 @@ while tryagain
         DrawFormattedText(window, 'White Americans', screenXpixels * 0.38, screenYpixels * 0.65, [0 1 1]);
         Screen('TextSize', window, 30);
         Screen('TextFont', window, 'Georgia');
-        DrawFormattedText(window, 'Weapons', screenXpixels * 0.38, screenYpixels * 0.73, [0 1 1]);
+        DrawFormattedText(window, 'Weapons', screenXpixels * 0.43, screenYpixels * 0.73, [0 1 1]);
         Screen('TextSize', window, 25);
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'OR', screenXpixels * 0.48, screenYpixels * 0.69, black);
@@ -813,7 +813,7 @@ while tryagain
         % Flip to the screen
         Screen('Flip', window);
         KbStrokeWait; 
-
+        tryagain = false
     elseif keyCode(1,8)~= 1 %anything other than e 
         % Load Instructions (Image 12)
          Screen('TextSize', window, 20);
@@ -826,24 +826,8 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
-        DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
-        screenYpixels * 0.15, black);
-        Screen('TextSize', window, 35);
-        Screen('TextFont', window, 'Georgia');
-        DrawFormattedText(window, 'Harmless Objects', 'left' ,...
-        screenYpixels * 0.2, [0 1 1]);
-        Screen('TextSize', window, 20);
-        Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
            screenYpixels * 0.07, black);
-        Screen('TextSize', window, 35);
-        Screen('TextFont', window, 'Georgia');
-        DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
-        screenYpixels * 0.15, black);
-        Screen('TextSize', window, 35);
-        Screen('TextFont', window, 'Georgia');
-        DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
-        screenYpixels * 0.2, [0 1 1]);
         Screen('TextSize', window, 35);
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
@@ -856,6 +840,3 @@ while tryagain
 end 
 
 % Here the correct response should lead to the next instructional page. 
-
-
-       
