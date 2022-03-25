@@ -173,8 +173,6 @@ DrawFormattedText(window, 'Black Americans', 'right' ,...
    screenYpixels * 0.11, [0 1 1]);
 %Load Image 1 
 bf14=imread("bf14.jpg"); 
-% Get the size of the image 
-[s1, s2, s3]=size(bf14);
 % Make image into a texture 
 bf14Texture = Screen('MakeTexture', window, bf14); 
 % Draw image to the screen
@@ -209,9 +207,7 @@ if keyCode(1,12) == 1 %i
     DrawFormattedText(window, 'Black Americans', 'right' ,...
        screenYpixels * 0.11, [0 1 1]);
     % Load Image 2
-    wm1=imread("wm1.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wm1);
+    wm1=imread("wm1.jpg");
     % Make image into a texture 
     wm1Texture = Screen('MakeTexture', window, wm1); 
     % Draw image to teh screen
@@ -244,8 +240,6 @@ elseif keyCode(1,12) ~= 1 %anything but i
     DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
     %Load Image 1 
     bf14=imread("bf14.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(bf14);
     % Make image into a texture 
     bf14Texture = Screen('MakeTexture', window, bf14); 
     % Draw image to the screen
@@ -282,8 +276,6 @@ if keyCode(1,8) == 1 %e
        screenYpixels * 0.11, [0 1 1]);
     %Load image 3
     wf2=imread("wf2.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wf2);
     % Make image into a texture 
     wf2Texture = Screen('MakeTexture', window, wf2); 
     % Draw image to the screen
@@ -311,8 +303,6 @@ elseif keyCode (1,8) ~= 1 %if keycode is not e
        screenYpixels * 0.11, [0 1 1]);
     % Load Image 2
     wm1=imread("wm1.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wm1);
     % Make image into a texture 
     wm1Texture = Screen('MakeTexture', window, wm1); 
     % Draw image to teh screen
@@ -352,8 +342,6 @@ if keyCode(1,8) == 1 %e
        screenYpixels * 0.11, [0 1 1]);
     %Load image 4
     bm14=imread("bm14.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(bm14);
     % Make image into a texture 
     bm14Texture = Screen('MakeTexture', window, bm14); 
     % Draw image to the screen
@@ -381,8 +369,6 @@ elseif keyCode (1,8) ~= 1 %if keycode is not e
        screenYpixels * 0.11, [0 1 1]);
     %Load image 3
     wf2=imread("wf2.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wf2);
     % Make image into a texture 
     wf2Texture = Screen('MakeTexture', window, wf2); 
     % Draw image to the screen
@@ -422,8 +408,6 @@ if keyCode(1,12) == 1 %i
        screenYpixels * 0.11, [0 1 1]);
     %Load Image 5
     wf3=imread("wf3.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wf3);
     % Make image into a texture 
     wf3Texture = Screen('MakeTexture', window, wf3); 
     % Draw image to the screen
@@ -451,8 +435,6 @@ elseif keyCode(1,12) ~= 1 %not equal to i
        screenYpixels * 0.11, [0 1 1]);
     %Load image 4
     bm14=imread("bm14.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(bm14);
     % Make image into a texture 
     bm14Texture = Screen('MakeTexture', window, bm14); 
     % Draw image to the screen
@@ -492,8 +474,6 @@ if keyCode(1,8) == 1 %e
        screenYpixels * 0.11, [0 1 1]);
     %Load Image 6
     bf23=imread("bf23.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(bf23);
     % Make image into a texture 
     bf23Texture = Screen('MakeTexture', window, bf23); 
     % Draw image to the screen
@@ -521,8 +501,6 @@ elseif keyCode(1,8) ~= 1 %e
        screenYpixels * 0.11, [0 1 1]);
     %Load Image 5
     wf3=imread("wf3.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wf3);
     % Make image into a texture 
     wf3Texture = Screen('MakeTexture', window, wf3); 
     % Draw image to the screen
@@ -563,8 +541,6 @@ if keyCode(1,12) == 1 %i
        screenYpixels * 0.11, [0 1 1]);
     % Load Image 7
     bm23=imread("bm23.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(bm23);
     % Make image into a texture 
     bm23Texture = Screen('MakeTexture', window, bm23); 
     % Draw image to the screen
@@ -592,8 +568,6 @@ elseif keyCode(1,12) ~= 1 %key code for I
        screenYpixels * 0.11, [0 1 1]);
     %Load Image 6
     bf23=imread("bf23.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(bf23);
     % Make image into a texture 
     bf23Texture = Screen('MakeTexture', window, bf23); 
     % Draw image to the screen
@@ -633,8 +607,6 @@ if keyCode(1,12) == 1 %i
        screenYpixels * 0.11, [0 1 1]);
     % Load Image 8
     wm4=imread("wm4.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wm4);
     % Make image into a texture 
     wm4Texture = Screen('MakeTexture', window, wm4); 
     % Draw image to the screen
@@ -662,8 +634,6 @@ elseif keyCode(1,12) ~= 1
        screenYpixels * 0.11, [0 1 1]);
     % Load Image 7
     bm23=imread("bm23.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(bm23);
     % Make image into a texture 
     bm23Texture = Screen('MakeTexture', window, bm23); 
     % Draw image to the screen
@@ -684,7 +654,7 @@ tryagain = true;
 while tryagain
 [secs, keyCode, deltaSecs] = KbPressWait;
 if keyCode(1,8) == 1 %e
- %load instructions for block 2
+%LOAD INSTRUCTION SLIDE FOR BLOCK 2 HERE
     tryagain = false;
 elseif keyCode(1,8) ~= 1
     % Load Image 8 w/ X
