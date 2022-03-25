@@ -4618,7 +4618,7 @@ block5meanrt = mean(block5times);
 
 %calculating the D-score (measure of implicit bias):
 pooledblocks3and5 = [trial3_times, block5times];
-finalDscore = (block6meanrt - block3meanrt)/std(pooledblocks3and6);
+finalDscore = (block5meanrt - block3meanrt)/std(pooledblocks3and6);
 
 %if statement interprets d-score and stores in level_of_bias 
 if finalDscore <= 0.15
