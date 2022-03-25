@@ -1,3 +1,7 @@
+% Hayley spent about 4 hours writing this code. This code requires the participant to press E when 
+% presented with an image of a White American or a harmless object and to press I when presented with 
+% an image of a Black American or a weapon. It also records their reaction times. 
+
 %PSYCHTOOLBOX SETUP SETTINGS
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
