@@ -180,15 +180,13 @@ Screen('DrawTexture', window, bf14Texture, [], [], 0);
 % Flip image to the screen 
 Screen('Flip', window);
 
-%RESPONSE TO IMAGE 1
-start_time = GetSecs; %reaction times aren't actually needed for this block
+%RESPONSE TO IMAGE 1 - Paloma spent around 6 hours figuring out the
+%keypresses and reaction times and another 2 hours writing this block
 
 tryagain = true; %sets condition for if statement to run
 while tryagain
 [secs, keyCode, deltaSecs] = KbPressWait;
 if keyCode(1,12) == 1 %i
-    %reactiontime = secs - start_time; %assign reaction time to this variable
-    %block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
     %Load Instructions (Image 2)
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -243,7 +241,6 @@ end %ends if statement
 end %ends while tryagain statement for this block
 
 %RESPONSE TO IMAGE 2
-start_time = GetSecs;
  
 tryagain = true; %sets condition for if statement to run
 while tryagain
