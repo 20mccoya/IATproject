@@ -232,6 +232,10 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
         % Load Image 1 (Black American)
         Screen('DrawTexture', window, bf23Texture, [],[],0); 
         Screen('Flip', window); 
@@ -320,7 +324,11 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
-        % Load Image 2 (Notebook)
+       % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+       % Load Image 2 (Notebook)
         Screen('DrawTexture', window, hnotebookTexture, [],[],0); 
         Screen('Flip', window); 
         tryagain=true; 
@@ -408,7 +416,11 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
-        % Load Image 3 (Dynamite)
+       % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+       % Load Image 3 (Dynamite)
         Screen('DrawTexture', window, wdynamiteTexture, [],[],0); 
         Screen('Flip', window); 
         tryagain=true; 
@@ -496,6 +508,10 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
         % Load Image 4 (Black American)
         Screen('DrawTexture', window, bm23Texture, [],[],0); 
         Screen('Flip', window); 
@@ -584,6 +600,10 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
         % Load Image 5 (White American)
         Screen('DrawTexture', window, wm4Texture, [],[],0); 
         Screen('Flip', window); 
@@ -672,7 +692,11 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
-        % Load Image 6 (Umbrella)
+       % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+       % Load Image 6 (Umbrella)
         Screen('DrawTexture', window, humbrellaTexture, [],[],0); 
         Screen('Flip', window); 
         tryagain=true; 
@@ -760,7 +784,11 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
-        % Load Image 7 (Wallet)
+       % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+       % Load Image 7 (Wallet)
         Screen('DrawTexture', window, hwalletTexture, [],[],0); 
         Screen('Flip', window); 
         tryagain=true; 
@@ -848,6 +876,10 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
         % Load Image 8 (Black American)
         Screen('DrawTexture', window, bm14Texture, [],[],0); 
         Screen('Flip', window); 
@@ -936,7 +968,11 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
-        % Load Image 9 (White American)
+       % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+       % Load Image 9 (White American)
         Screen('DrawTexture', window, wf2Texture, [],[],0); 
         Screen('Flip', window); 
         tryagain=true; 
@@ -1024,6 +1060,10 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
         % Load Image 10 (Shotgun)
         Screen('DrawTexture', window, wshotgunTexture, [],[],0); 
         Screen('Flip', window); 
@@ -1112,6 +1152,10 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
         % Load Image 11 (Backpack)
         Screen('DrawTexture', window, hbackpackTexture, [],[],0); 
         Screen('Flip', window); 
@@ -1241,7 +1285,11 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
         screenYpixels * 0.11, [0 1 1]);
-        % Load Image 12 (Black American)
+       % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+       % Load Image 12 (Black American)
         Screen('DrawTexture', window, bf14Texture, [],[],0); 
         Screen('Flip', window); 
         tryagain=true; 
