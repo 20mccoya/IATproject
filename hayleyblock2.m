@@ -61,7 +61,7 @@
  DrawFormattedText(window, 'Put a right finger on the I key for items that belong to the category', screenXpixels * 0.1, screenYpixels * 0.50, black);
  Screen('TextSize', window, 30);
  Screen('TextFont', window, 'Georgia');
- DrawFormattedText(window, 'Wepaons', screenXpixels * 0.38, screenYpixels * 0.53, [0 1 1]);
+ DrawFormattedText(window, 'Weapons', screenXpixels * 0.43, screenYpixels * 0.53, [0 1 1]);
  Screen('TextSize', window, 25);
  Screen('TextFont', window, 'Georgia');
  DrawFormattedText(window, 'If you make a mistake, a red       will appear. Press the other key to continue', screenXpixels * 0.05, screenYpixels * 0.70, black);
@@ -108,10 +108,10 @@
  [s1, s2, s3]=size(hbackpack);
 
  % Make image into a texture 
- hbackpack = Screen('MakeTexture', window, hbackpack); 
+ hbackpackTexture = Screen('MakeTexture', window, hbackpack); 
 
  % Draw image to the screen
- Screen('DrawTexture', window, hbackpack, [], [], 0); 
+ Screen('DrawTexture', window, hbackpackTexture, [], [], 0); 
 
  % Flip image to the screen 
  Screen('Flip', window); 
@@ -145,7 +145,7 @@
          hkeychain=imread("hkeychain.jpg"); 
 
          % Make image into a texture 
-         hkeychain = Screen('MakeTexture', window, hkeychain); 
+         hkeychainTexture = Screen('MakeTexture', window, hkeychain); 
 
          % Draw image to teh screen
          Screen('DrawTexture', window, hkeychainTexture, [], [], 0); 
@@ -341,9 +341,6 @@
          % Load Image 5 (Automatic Rifle)
          wautomaticrifle=imread("wautomaticrifle.jpg"); 
 
-         % Get the size of the image 
-         [s1, s2, s3]=size(wautomaticriful);
-
          % Make image into a texture 
          wautomaticrifleTexture = Screen('MakeTexture', window, wautomaticrifle); 
 
@@ -520,13 +517,10 @@
  end 
 
  % RESPONSE TO IMAGE 7 (Shotgun)
- start_time=GetSecs; % Records time of image presentation
  tryagain=true; % Sets condition for if statement to run 
  while tryagain 
      [secs, keyCode, deltasecs] = KbPressWait; 
      if keyCode(1,12)==1 % I keypress 
-         reactiontime=secs-start_time;
-         trial_2_times=[trial_2_times, reactiontime]; 
          %Load Instructions (Image 8)
          Screen('TextSize', window, 20);
          Screen('TextFont', window, 'Georgia');
@@ -590,13 +584,10 @@
  end 
 
  % RESPONSE TO IMAGE 8 (Notebook)
- start_time=GetSecs; % Records time of image presentation
  tryagain=true; % Sets condition for if statement to run 
  while tryagain 
      [secs, keyCode, deltasecs] = KbPressWait; 
      if keyCode(1,8)==1 % e keypress 
-         reactiontime=secs-start_time;
-         trial_2_times=[trial_2_times, reactiontime]; 
          %Load Instructions (Image 9)
          Screen('TextSize', window, 20);
          Screen('TextFont', window, 'Georgia');
@@ -660,13 +651,10 @@
  end 
 
  % RESPONSE TO IMAGE 9 (Handgun)
- start_time=GetSecs; % Records time of image presentation
  tryagain=true; % Sets condition for if statement to run 
  while tryagain 
      [secs, keyCode, deltasecs] = KbPressWait; 
      if keyCode(1,12)==1 % I keypress 
-         reactiontime=secs-start_time;
-         trial_2_times=[trial_2_times, reactiontime]; 
          %Load Instructions (Image 10)
          Screen('TextSize', window, 20);
          Screen('TextFont', window, 'Georgia');
@@ -691,7 +679,7 @@
          [s1, s2, s3]=size(htoothbrush);
 
          % Make image into a texture 
-         htoothbrush = Screen('MakeTexture', window, htoothbrush); 
+         htoothbrushTexture = Screen('MakeTexture', window, htoothbrush); 
 
          % Draw image to the screen
          Screen('DrawTexture', window, htoothbrushTexture, [], [], 0); 
