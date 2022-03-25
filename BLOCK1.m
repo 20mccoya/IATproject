@@ -206,17 +206,13 @@ if keyCode(1,12) == 1 %i
     Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'Black Americans', 'right' ,...
        screenYpixels * 0.11, [0 1 1]);
-    % Load Image 2
-    wm1=imread("wm1.jpg");
-    % Make image into a texture 
+    % Load/Display Image 2
+    wm1=imread("wm1.jpg"); 
     wm1Texture = Screen('MakeTexture', window, wm1); 
-    % Draw image to teh screen
     Screen('DrawTexture', window, wm1Texture, [], [], 0); 
-    % Flip image to the screen 
     Screen('Flip', window);
     tryagain = false;
 elseif keyCode(1,12) ~= 1 %anything but i
-    %add an X to display
     % Load Instructions
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -238,13 +234,9 @@ elseif keyCode(1,12) ~= 1 %anything but i
     Screen('TextSize', window, 29);
     Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
-    %Load Image 1 
-    bf14=imread("bf14.jpg"); 
-    % Make image into a texture 
-    bf14Texture = Screen('MakeTexture', window, bf14); 
-    % Draw image to the screen
+    %display Image 1 
     Screen('DrawTexture', window, bf14Texture, [], [], 0); 
-    % Flip image to the screen 
+    % Flip to the screen 
     Screen('Flip', window); %shows same trial but w/ an X
     tryagain = true; %sends us back to beginning of while statement
 end %ends if statement
@@ -276,9 +268,7 @@ if keyCode(1,8) == 1 %e
        screenYpixels * 0.11, [0 1 1]);
     %Load image 3
     wf2=imread("wf2.jpg"); 
-    % Make image into a texture 
     wf2Texture = Screen('MakeTexture', window, wf2); 
-    % Draw image to the screen
     Screen('DrawTexture', window, wf2Texture, [], [], 0); 
     % Flip iamge to the screen 
     Screen('Flip', window);
@@ -301,10 +291,6 @@ elseif keyCode (1,8) ~= 1 %if keycode is not e
     Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'Black Americans', 'right' ,...
        screenYpixels * 0.11, [0 1 1]);
-    % Load Image 2
-    wm1=imread("wm1.jpg"); 
-    % Make image into a texture 
-    wm1Texture = Screen('MakeTexture', window, wm1); 
     % Draw image to teh screen
     Screen('DrawTexture', window, wm1Texture, [], [], 0);
     %draw X on screen
@@ -342,9 +328,7 @@ if keyCode(1,8) == 1 %e
        screenYpixels * 0.11, [0 1 1]);
     %Load image 4
     bm14=imread("bm14.jpg"); 
-    % Make image into a texture 
     bm14Texture = Screen('MakeTexture', window, bm14); 
-    % Draw image to the screen
     Screen('DrawTexture', window, bm14Texture, [], [], 0); 
     % Flip image to the screen 
     Screen('Flip', window);
@@ -368,10 +352,6 @@ elseif keyCode (1,8) ~= 1 %if keycode is not e
     DrawFormattedText(window, 'Black Americans', 'right' ,...
        screenYpixels * 0.11, [0 1 1]);
     %Load image 3
-    wf2=imread("wf2.jpg"); 
-    % Make image into a texture 
-    wf2Texture = Screen('MakeTexture', window, wf2); 
-    % Draw image to the screen
     Screen('DrawTexture', window, wf2Texture, [], [], 0); 
     %draw X on screen
     Screen('TextSize', window, 29);
@@ -434,10 +414,6 @@ elseif keyCode(1,12) ~= 1 %not equal to i
     DrawFormattedText(window, 'Black Americans', 'right' ,...
        screenYpixels * 0.11, [0 1 1]);
     %Load image 4
-    bm14=imread("bm14.jpg"); 
-    % Make image into a texture 
-    bm14Texture = Screen('MakeTexture', window, bm14); 
-    % Draw image to the screen
     Screen('DrawTexture', window, bm14Texture, [], [], 0); 
     %draw X on screen
         Screen('TextSize', window, 29);
@@ -474,9 +450,7 @@ if keyCode(1,8) == 1 %e
        screenYpixels * 0.11, [0 1 1]);
     %Load Image 6
     bf23=imread("bf23.jpg"); 
-    % Make image into a texture 
     bf23Texture = Screen('MakeTexture', window, bf23); 
-    % Draw image to the screen
     Screen('DrawTexture', window, bf23Texture, [], [], 0); 
     % Flip image to the screen 
     Screen('Flip', window);
@@ -500,10 +474,6 @@ elseif keyCode(1,8) ~= 1 %e
     DrawFormattedText(window, 'Black Americans', 'right' ,...
        screenYpixels * 0.11, [0 1 1]);
     %Load Image 5
-    wf3=imread("wf3.jpg"); 
-    % Make image into a texture 
-    wf3Texture = Screen('MakeTexture', window, wf3); 
-    % Draw image to the screen
     Screen('DrawTexture', window, wf3Texture, [], [], 0); 
     %draw X on screen
         Screen('TextSize', window, 29);
@@ -659,8 +629,6 @@ if keyCode(1,8) == 1 %e
 elseif keyCode(1,8) ~= 1
     % Load Image 8 w/ X
     wm4=imread("wm4.jpg"); 
-    % Get the size of the image 
-    [s1, s2, s3]=size(wm4);
     % Make image into a texture 
     wm4Texture = Screen('MakeTexture', window, wm4); 
     % Draw image to the screen
