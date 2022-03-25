@@ -1,27 +1,35 @@
-% Here we call some default settings for setting up Psychtoolbox
+% Ashley formatted the text on the opening slide. She spent around 6 hours learning about psychtoolbox and breaking down demos in order to understand how 
+% the different aspects of psychtoolbox worked together. Once she understood how to set up the screens, windows, and how to "flip" the screens, she 
+% formatted the text in the window appropriately. It took longer to debug because she needed to add the line: "Screen('Preference','SkipSyncTests',1)" 
+% in order for the window to show up on the mac computers. She also attended, with her teammates, a 2 hour psychtoolbox tutorial that Haley and 
+% Ivan offered early on in the project timeline. Once the mechanics of psychtoolbox were figured out, it took a half hour for her to properly format the 
+% slide, getting the spacing correct as well as the sizing. Ashley also worked to research how to make the code react to key strokes. This took
+% around 3 hours to research through psychtoolbox demos and 4 additional hours to code and debug the code so that the flipped window would switch to the
+% correct slide folowing a key press. The team had difficulty with the key stroke function because the function would work sporatically, and only on some 
+% of the group's computers. This drove up debugging time to get the function working. This was a recurring issue for the team that took lots of
+% debugging and research. Once Ashley figured out how to formatted the first slide of text, she formatted the rest of the text for the IAT. Each slide of
+% text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text, for each of the trial slides. 
+
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
-% Get the screen numbers
+
 screens = Screen('Screens');
-% Select the external screen if it is present, else revert to the native
-% screen
+% Select the external screen if it is present
 screenNumber = max(screens);
-% Define black, white and grey
+% Define the colors black, white and grey
 black = BlackIndex(screenNumber);
 white = WhiteIndex(screenNumber);
 grey = white / 2;
-% Open an on screen window and color it grey
+% Opens an on screen window and colors it white
 [window, windowRect] = PsychImaging('OpenWindow', screenNumber, white, [0,0 , 900,900]);
 % Set the blend funciton for the screen
 Screen('BlendFunction', window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
-% Get the size of the on screen window in pixels
-% For help see: Screen WindowSize?
+% Gets the size of the on screen window
 [screenXpixels, screenYpixels] = Screen('WindowSize', window);
-% Get the centre coordinate of the window in pixels
-% For help see: help RectCenter
+% Get the center coordinate of the window
 [xCenter, yCenter] = RectCenter(windowRect);
-% Draw text in the upper portion of the screen with the default font in
-% black
+% Draw text in the center portion of the screen in
+% black, with the font Georgia
 Screen('TextSize', window, 80);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Welcome to the', 'center',...
@@ -38,7 +46,9 @@ DrawFormattedText(window, 'press any key to continue', 'center',...
 % Flip to the screen
 Screen('Flip', window);
 KbStrokeWait;
-%% slide 2 starts here
+%% slide 2 starts here. Ashley formatted slide 2, this slide presented another challenege because it required that she learn about drawing polygons
+% in order to draw the rectangles that create the grid. She spent around 2 hours to read and debug the polygon demo for psychtoolbox and another hour to 
+% write the code for the grid. It took another hour to code, format, and debug the text on this window. 
 Screen('TextSize', window, 35);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Implicit Association Test', screenXpixels * 0.03 ,...
@@ -51,7 +61,7 @@ Screen('TextSize', window, 20);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'These are the four categories and the items that belong to each: ', screenXpixels * 0.05,...
    screenYpixels * 0.14, black);
-% Draw text in the bottom of the screen in Times in blue
+% Draw text in the bottom of the screen in Times in grey
 Screen('TextSize', window, 30);
 Screen('TextFont', window, 'Times');
 DrawFormattedText(window, 'press any key to continue', 'center',...
@@ -103,7 +113,7 @@ DrawFormattedText(window, 'There are seven parts. The instructions change for ea
 % Flip to the screen
 Screen('Flip', window);
 KbStrokeWait;
-%% slide 3 starts here
+%% slide 3 starts here. Ashley formatted this slide's text
 Screen('TextSize', window, 20);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
@@ -120,7 +130,7 @@ Screen('TextSize', window, 35);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Black Americans', 'right' ,...
    screenYpixels * 0.11, [0 1 1]);
-% Draw text in the middle of the screen in Courier in white
+% Draw text in the middle of the screen in Georgia in black
 Screen('TextSize', window, 25);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Part 1 of 7', screenXpixels * 0.46, screenYpixels * 0.36, black);
@@ -145,7 +155,7 @@ DrawFormattedText(window, 'X', screenXpixels * 0.41, screenYpixels * 0.70, [1 0 
 Screen('TextSize', window, 25);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Go as fast as you can while being accurate!', screenXpixels * 0.24, screenYpixels * 0.73, black);
-% Draw text in the bottom of the screen in Times in blue
+% Draw text in the bottom of the screen in Times in grey
 Screen('TextSize', window, 30);
 Screen('TextFont', window, 'Times');
 DrawFormattedText(window, 'press any key to continue', screenXpixels * 0.33,...
