@@ -684,13 +684,25 @@ tryagain = true;
 while tryagain
 [secs, keyCode, deltaSecs] = KbPressWait;
 if keyCode(1,8) == 1 %e
-    %load new image
+ %load instructions for block 2
+    tryagain = false;
 elseif keyCode(1,8) ~= 1
-    %load image 8 w/ an x
+    % Load Image 8 w/ X
+    wm4=imread("wm4.jpg"); 
+    % Get the size of the image 
+    [s1, s2, s3]=size(wm4);
+    % Make image into a texture 
+    wm4Texture = Screen('MakeTexture', window, wm4); 
+    % Draw image to the screen
+    Screen('DrawTexture', window, wm4Texture, [], [], 0); 
+    %Draw X on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    % Flip image to the screen
+    Screen('Flip', window);
+    tryagain = false;
 end
 end
 
 %HERE the correct response should lead to the next instructional page
-
-%Load Image 9
-bm56=imread("bm56.jpg");
