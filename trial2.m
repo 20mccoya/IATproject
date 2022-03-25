@@ -1,4 +1,4 @@
-% Hayley spent about 4 hours writing code for trial 2; this includes the time spent in office hours trying to get the key press functions to run on her laptop. 
+% Hayley spent about 5 hours writing code for trial 2; this includes the time spent in office hours trying to get the keypress functions to run on her laptop. 
 % Hayley spent another hour debugging her code. Because her keypresses were not working, Paloma ran the code on her laptop and sent Hayley the changes to make. 
 
 % Here we call some default settings for setting up Psychtoolbox
