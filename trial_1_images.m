@@ -1,3 +1,8 @@
+% Hayley spent about 5 hours writing this code and experimenting with Psychtoolbox. 
+% She used the code that Ashley wrote for the intro and instruction slides and experiemnted with the image 
+% appearance and keyboard press functions to figure out how to make images appear and change in response
+% to keyboard presses. She also learned how to prevent the instructions from moving throughout the tiral. 
+
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
