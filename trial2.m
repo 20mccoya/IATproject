@@ -1,3 +1,6 @@
+% Hayley spent about 4 hours writing code for trial 2; this includes the time spent in office hours trying to get the key press functions to run on her laptop. 
+% Hayley spent another hour debugging her code. Because her keypresses were not working, Paloma ran the code on her laptop and sent Hayley the changes to make. 
+
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
@@ -49,7 +52,7 @@ DrawFormattedText(window, 'Weapons', 'right' ,...
 % Draw text in the middle of the screen in Courier in white
 Screen('TextSize', window, 25);
 Screen('TextFont', window, 'Georgia');
-DrawFormattedText(window, 'Part 2 of 7', screenXpixels * 0.46, screenYpixels * 0.36, black);
+DrawFormattedText(window, 'Part 2 of 5', screenXpixels * 0.46, screenYpixels * 0.36, black);
 Screen('TextSize', window, 25);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Put a left finger on the E key for items that belong to the category', screenXpixels * 0.1, screenYpixels * 0.41, black);
@@ -104,9 +107,6 @@ DrawFormattedText(window, 'Weapons', 'right' ,...
 %Load Image 1 (Backpack)
 hbackpack=imread("hbackpack.jpg"); 
 
-% Get the size of the image 
-[s1, s2, s3]=size(hbackpack);
-
 % Make image into a texture 
 hbackpackTexture = Screen('MakeTexture', window, hbackpack); 
 
@@ -118,13 +118,10 @@ Screen('Flip', window);
 
 % REPONSE TO IMAGE 1 (Backpack) - Practice round, times not actually
 % recorded 
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
     if keyCode(1,8)==1 % e keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
         %Load Instructions (Image 2)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -145,9 +142,6 @@ while tryagain
 
         % Load Image 2 (Keychain)
         hkeychain=imread("hkeychain.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(hkeychain);
 
         % Make image into a texture 
         hkeychainTexture = Screen('MakeTexture', window, hkeychain); 
@@ -188,13 +182,10 @@ while tryagain
 end 
 
 % RESPONSE TO IMAGE 2 (Keychain)
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
     if keyCode(1,8)==1 % e keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
         %Load Instructions (Image 3)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -214,9 +205,6 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         % Load Image 3 (Dynamite)
         wdynamite=imread("wdynamite.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(wdynamite);
 
         % Make image into a texture 
         wdynamiteTexture = Screen('MakeTexture', window, wdynamite); 
@@ -258,13 +246,10 @@ while tryagain
 end 
 
 % RESPONSE TO IMAGE 3 (Dynamite)
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
     if keyCode(1,12)==1 % I keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
         %Load Instructions (Image 4)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -284,9 +269,6 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         % Load Image 4 (Umbrella)
         humbrella=imread("humbrella.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(humbrella);
 
         % Make image into a texture 
         humbrellaTexture = Screen('MakeTexture', window, humbrella); 
@@ -328,13 +310,10 @@ while tryagain
 end 
 
 % RESPONSE TO IMAGE 4 (Umbrella)
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
     if keyCode(1,8)==1 % e keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
         %Load Instructions (Image 5)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -395,13 +374,10 @@ while tryagain
 end 
 
 % RESPONSE TO IMAGE 5 (Automatic Rifle)
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
     if keyCode(1,12)==1 % I keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
         %Load Instructions (Image 6)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -421,9 +397,6 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         % Load Image 6 (Brass Knuckles)
         wbrassknuckles=imread("wbrassknuckles.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(wbrassknuckles);
 
         % Make image into a texture 
         wbrassknucklesTexture = Screen('MakeTexture', window, wbrassknuckles); 
@@ -465,13 +438,10 @@ while tryagain
 end 
 
 % RESPONSE TO IMAGE 6 (Brass Knuckles)
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
     if keyCode(1,12)==1 % I keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
         %Load Instructions (Image 7)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -491,9 +461,6 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         % Load Image 7
         wshotgun=imread("wshotgun.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(wshotgun);
 
         % Make image into a texture 
         wshotgunTexture = Screen('MakeTexture', window, wshotgun); 
@@ -559,9 +526,6 @@ while tryagain
         % Load Image 8 (Notebook)
         hnotebook=imread("hnotebook.jpg"); 
 
-        % Get the size of the image 
-        [s1, s2, s3]=size(humbrella);
-
         % Make image into a texture 
         hnotebookTexture = Screen('MakeTexture', window, hnotebook); 
 
@@ -625,9 +589,6 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         % Load Image 9(Handgun)
         whandgun=imread("whandgun.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(whandgun);
 
         % Make image into a texture 
         whandgun = Screen('MakeTexture', window, whandgun); 
@@ -693,9 +654,6 @@ while tryagain
         % Load Image 10
         htoothbrush=imread("htoothbrush.jpg"); 
 
-        % Get the size of the image 
-        [s1, s2, s3]=size(htoothbrush);
-
         % Make image into a texture 
         htoothbrushTexture = Screen('MakeTexture', window, htoothbrush); 
 
@@ -737,13 +695,10 @@ end
 
 
 % RESPONSE TO IMAGE 10 
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
-    if keyCode(1,8)==1 % E keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
+    if keyCode(1,8)==1 % E keypress  
         %Load Instructions (Image 11)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -763,9 +718,6 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         % Load Image 11 (Wallet)
         hwallet=imread("hwallet.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(hwallet);
 
         % Make image into a texture 
         hwalletTexture = Screen('MakeTexture', window, hwallet); 
@@ -807,13 +759,10 @@ while tryagain
 end 
 
 % RESPONSE TO IMAGE 11 (Wallet) 
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
     if keyCode(1,8)==1 % e keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
         %Load Instructions (Image 12)
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -833,9 +782,6 @@ while tryagain
         screenYpixels * 0.11, [0 1 1]);
         % Load Image 12 (Knife)
         wknife=imread("wknife.jpg"); 
-
-        % Get the size of the image 
-        [s1, s2, s3]=size(wknife);
 
         % Make image into a texture 
         wknifeTexture = Screen('MakeTexture', window, wknife); 
@@ -877,13 +823,10 @@ while tryagain
 end 
 
 % REPONSE TO IMAGE 12 (Knife)
-start_time=GetSecs; % Records time of image presentation
 tryagain=true; % Sets condition for if statement to run 
 while tryagain 
     [secs, keyCode, deltasecs] = KbPressWait; 
-    if keyCode(1,12)==1 % I keypress 
-        reactiontime=secs-start_time;
-        trial_2_times=[trial_2_times, reactiontime]; 
+    if keyCode(1,12)==1 % I keypress  
         %Load Instruction Screen for Trial 3
         Screen('TextSize', window, 20);
         Screen('TextFont', window, 'Georgia');
@@ -919,7 +862,7 @@ while tryagain
         % Draw text in the middle of the screen in Courier in white
         Screen('TextSize', window, 25);
         Screen('TextFont', window, 'Georgia');
-        DrawFormattedText(window, 'Part 3 of 7', screenXpixels * 0.46, screenYpixels * 0.36, black);
+        DrawFormattedText(window, 'Part 3 of 5', screenXpixels * 0.46, screenYpixels * 0.36, black);
         Screen('TextSize', window, 25);
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Put a left finger on the E key for items that belong to the category', screenXpixels * 0.1, screenYpixels * 0.41, black);
