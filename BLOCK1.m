@@ -184,14 +184,14 @@ Screen('Flip', window);
 
 %RESPONSE TO IMAGE 1
 start_time = GetSecs; %reaction times aren't actually needed for this block
-[keyIsDown,secs, key_pressed] = KbCheck; 
 
 tryagain = true; %sets condition for if statement to run
 while tryagain
-if keyIsDown && key_pressed == 101 %or some other code indicating keypress
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
     reactiontime = secs - start_time; %assign reaction time to this variable
-    block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
-    %Load Instructions (Image 2) 
+    %block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
+    %Load Instructions (Image 2)
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
     DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
@@ -219,8 +219,8 @@ if keyIsDown && key_pressed == 101 %or some other code indicating keypress
     % Flip image to the screen 
     Screen('Flip', window);
     tryagain = false;
-elseif keyIsDown && key_pressed ~= 101
-    %construct an identical display but w/ an X
+elseif keyCode(1,8) ~= 1 %anything but e
+    %add an X to display
     % Load Instructions
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -258,11 +258,11 @@ end %ends while tryagain statement for this block
 
 %RESPONSE TO IMAGE 2
 start_time = GetSecs;
-[keyIsDown,secs, key_pressed] = KbCheck; 
  
 tryagain = true; %sets condition for if statement to run
 while tryagain
-if keyIsDown && key_pressed == 105 %or some other code indicating keypress
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
     %Load Instructions (Image 3) 
@@ -334,7 +334,7 @@ start_time = GetSecs;
 [keyIsDown,secs, key_pressed] = KbCheck;
 
 while tryagain
-if keyIsDown && key_pressed == 101 %key code for E
+if keyIsDown && key_pressed == 12 %key code for E
     reactiontime = secs - start_time; %assign reaction time to this variable
     block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
     %Load Instructions (Image 4) 
@@ -365,7 +365,7 @@ if keyIsDown && key_pressed == 101 %key code for E
     % Flip image to the screen 
     Screen('Flip', window);
      tryagain = false;
-elseif keyIsDown && key_pressed ~= 101 %key code for E
+elseif keyIsDown && key_pressed ~= 12 %key code for E
     %Load Instructions (Image 3) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
