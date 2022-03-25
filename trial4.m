@@ -1,4 +1,4 @@
-% Hayley spent about 3 hours writing and debugging this code. This code requires participants to press E when presented 
+% Hayley spent 4 hours writing and debugging this code. This code requires participants to press E when presented 
 % with an image of a Black American and to press I when presented with an image of a White American. 
 
 % Here we call some default settings for setting up Psychtoolbox
