@@ -188,8 +188,8 @@ start_time = GetSecs; %reaction times aren't actually needed for this block
 tryagain = true; %sets condition for if statement to run
 while tryagain
 [secs, keyCode, deltaSecs] = KbPressWait;
-if keyCode(1,8) == 1 %e
-    reactiontime = secs - start_time; %assign reaction time to this variable
+if keyCode(1,12) == 1 %i
+    %reactiontime = secs - start_time; %assign reaction time to this variable
     %block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
     %Load Instructions (Image 2)
     Screen('TextSize', window, 20);
@@ -219,7 +219,7 @@ if keyCode(1,8) == 1 %e
     % Flip image to the screen 
     Screen('Flip', window);
     tryagain = false;
-elseif keyCode(1,8) ~= 1 %anything but e
+elseif keyCode(1,12) ~= 1 %anything but i
     %add an X to display
     % Load Instructions
     Screen('TextSize', window, 20);
@@ -263,8 +263,6 @@ tryagain = true; %sets condition for if statement to run
 while tryagain
 [secs, keyCode, deltaSecs] = KbPressWait;
 if keyCode(1,8) == 1 %e
-    reactiontime = secs - start_time; %assign reaction time to this variable
-    block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
     %Load Instructions (Image 3) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -293,7 +291,7 @@ if keyCode(1,8) == 1 %e
     % Flip iamge to the screen 
     Screen('Flip', window);
     tryagain = false;
-elseif keyIsDown && key_pressed ~= 105
+elseif keyCode (1,8) ~= 1 %if keycode is not e
     %Load Instructions (Image 2) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -330,13 +328,11 @@ end
 end
 
 %RESPONSE TO IMAGE 3
-start_time = GetSecs;
-[keyIsDown,secs, key_pressed] = KbCheck;
 
+tryagain = true;
 while tryagain
-if keyIsDown && key_pressed == 12 %key code for E
-    reactiontime = secs - start_time; %assign reaction time to this variable
-    block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
     %Load Instructions (Image 4) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -364,8 +360,8 @@ if keyIsDown && key_pressed == 12 %key code for E
     Screen('DrawTexture', window, bm14Texture, [], [], 0); 
     % Flip image to the screen 
     Screen('Flip', window);
-     tryagain = false;
-elseif keyIsDown && key_pressed ~= 12 %key code for E
+    tryagain = false;
+elseif keyCode (1,8) ~= 1 %if keycode is not e
     %Load Instructions (Image 3) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -402,13 +398,11 @@ end
 end
 
 %RESPONSE TO IMAGE 4
-start_time = GetSecs; 
-[keyIsDown,secs, key_pressed] = KbCheck;
 
+tryagain = true;
 while tryagain
-if keyIsDown && key_pressed == 101 %key code for E
-    reactiontime = secs - start_time; %assign reaction time to this variable
-    block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
     %Load Instructions (Image 5) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -437,7 +431,7 @@ if keyIsDown && key_pressed == 101 %key code for E
     % Flip image to the screen 
     Screen('Flip', window);
     tryagain = false;
-elseif keyIsDown && key_pressed ~= 101 %key code for E
+elseif keyCode(1,12) ~= 1 %not equal to i
     %Load Instructions (Image 4) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -474,13 +468,11 @@ end
 end
 
 %RESPONSE TO IMAGE 5
-start_time = GetSecs;
-[keyIsDown,secs, key_pressed] = KbCheck;
 
+tryagain = true;
 while tryagain
-if keyIsDown && key_pressed == 101 %key code for E
-    reactiontime = secs - start_time; %assign reaction time to this variable
-    block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
     %Load Instructions (Image 6) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -509,7 +501,7 @@ if keyIsDown && key_pressed == 101 %key code for E
     % Flip image to the screen 
     Screen('Flip', window);
     tryagain = false;
-elseif keyIsDown && key_pressed ~= 101 %key code for E
+elseif keyCode(1,8) ~= 1 %e
     %Load Instructions (Image 5) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -545,14 +537,13 @@ elseif keyIsDown && key_pressed ~= 101 %key code for E
 end
 end
  
-%RESPONSE TO IMAGE 6
-start_time = GetSecs;
-[keyIsDown,secs, key_pressed] = KbCheck;
 
+%RESPONSE TO IMAGE 6
+
+tryagain = true;
 while tryagain
-if keyIsDown && key_pressed == 105 %key code for I
-    reactiontime = secs - start_time; %assign reaction time to this variable
-    block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
     %Load Instructions (Image 7) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -581,7 +572,7 @@ if keyIsDown && key_pressed == 105 %key code for I
     % Flip image to the screen 
     Screen('Flip', window);
     tryagain = false;
-elseif keyIsDown && key_pressed ~= 105 %key code for I
+elseif keyCode(1,12) ~= 1 %key code for I
     %Load Instructions (Image 6) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -619,13 +610,10 @@ end
 
 %RESPONSE TO IMAGE 7
 
-start_time = GetSecs;
-[keyIsDown,secs, key_pressed] = KbCheck;
-
+tryagain = true;
 while tryagain
-if keyIsDown && key_pressed == 105 %key code for I
-    reactiontime = secs - start_time; %assign reaction time to this variable
-    block3times = cat(block3times, reactiontime); %adds rt from this trial to block rt vector
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
     %Load Instructions (Image 8) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -654,7 +642,7 @@ if keyIsDown && key_pressed == 105 %key code for I
     % Flip image to the screen 
     Screen('Flip', window);
     tryagain = false;
-elseif keyIsDown && key_pressed ~= 105 %key code for I
+elseif keyCode(1,12) ~= 1
     %Load Instructions (Image 7) 
     Screen('TextSize', window, 20);
     Screen('TextFont', window, 'Georgia');
@@ -692,8 +680,15 @@ end
 
 %RESPONSE TO IMAGE 8
 
-start_time = GetSecs;
-[keyIsDown,secs, key_pressed] = KbCheck;
+tryagain = true;
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
+    %load new image
+elseif keyCode(1,8) ~= 1
+    %load image 8 w/ an x
+end
+end
 
 %HERE the correct response should lead to the next instructional page
 
