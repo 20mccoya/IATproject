@@ -1,3 +1,5 @@
+% Hayley spend about 3 hours writing and debugging this code. 
+
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
