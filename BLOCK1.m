@@ -1,35 +1,27 @@
-% Ashley formatted the text on the opening slide. She spent around 6 hours learning about psychtoolbox and breaking down demos in order to understand how 
-% the different aspects of psychtoolbox worked together. Once she understood how to set up the screens, windows, and how to "flip" the screens, she 
-% formatted the text in the window appropriately. It took longer to debug because she needed to add the line: "Screen('Preference','SkipSyncTests',1)" 
-% in order for the window to show up on the mac computers. She also attended, with her teammates, a 2 hour psychtoolbox tutorial that Haley and 
-% Ivan offered early on in the project timeline. Once the mechanics of psychtoolbox were figured out, it took a half hour for her to properly format the 
-% slide, getting the spacing correct as well as the sizing. Ashley also worked to research how to make the code react to key strokes. This took
-% around 3 hours to research through psychtoolbox demos and 4 additional hours to code and debug the code so that the flipped window would switch to the
-% correct slide folowing a key press. The team had difficulty with the key stroke function because the function would work sporatically, and only on some 
-% of the group's computers. This drove up debugging time to get the function working. This was a recurring issue for the team that took lots of
-% debugging and research. Once Ashley figured out how to formatted the first slide of text, she formatted the rest of the text for the IAT. Each slide of
-% text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text, for each of the trial slides. 
-
+% Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
-
+% Get the screen numbers
 screens = Screen('Screens');
-% Select the external screen if it is present
+% Select the external screen if it is present, else revert to the native
+% screen
 screenNumber = max(screens);
-% Define the colors black, white and grey
+% Define black, white and grey
 black = BlackIndex(screenNumber);
 white = WhiteIndex(screenNumber);
 grey = white / 2;
-% Opens an on screen window and colors it white
+% Open an on screen window and color it grey
 [window, windowRect] = PsychImaging('OpenWindow', screenNumber, white, [0,0 , 900,900]);
 % Set the blend funciton for the screen
 Screen('BlendFunction', window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
-% Gets the size of the on screen window
+% Get the size of the on screen window in pixels
+% For help see: Screen WindowSize?
 [screenXpixels, screenYpixels] = Screen('WindowSize', window);
-% Get the center coordinate of the window
+% Get the centre coordinate of the window in pixels
+% For help see: help RectCenter
 [xCenter, yCenter] = RectCenter(windowRect);
-% Draw text in the center portion of the screen in
-% black, with the font Georgia
+% Draw text in the upper portion of the screen with the default font in
+% black
 Screen('TextSize', window, 80);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Welcome to the', 'center',...
@@ -46,9 +38,7 @@ DrawFormattedText(window, 'press any key to continue', 'center',...
 % Flip to the screen
 Screen('Flip', window);
 KbStrokeWait;
-%% slide 2 starts here. Ashley formatted slide 2, this slide presented another challenege because it required that she learn about drawing polygons
-% in order to draw the rectangles that create the grid. She spent around 2 hours to read and debug the polygon demo for psychtoolbox and another hour to 
-% write the code for the grid. It took another hour to code, format, and debug the text on this window. 
+%% slide 2 starts here
 Screen('TextSize', window, 35);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Implicit Association Test', screenXpixels * 0.03 ,...
@@ -61,7 +51,7 @@ Screen('TextSize', window, 20);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'These are the four categories and the items that belong to each: ', screenXpixels * 0.05,...
    screenYpixels * 0.14, black);
-% Draw text in the bottom of the screen in Times in grey
+% Draw text in the bottom of the screen in Times in blue
 Screen('TextSize', window, 30);
 Screen('TextFont', window, 'Times');
 DrawFormattedText(window, 'press any key to continue', 'center',...
@@ -113,7 +103,7 @@ DrawFormattedText(window, 'There are seven parts. The instructions change for ea
 % Flip to the screen
 Screen('Flip', window);
 KbStrokeWait;
-%% slide 3 starts here. Ashley formatted this slide's text
+%% slide 3 starts here
 Screen('TextSize', window, 20);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
@@ -130,7 +120,7 @@ Screen('TextSize', window, 35);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Black Americans', 'right' ,...
    screenYpixels * 0.11, [0 1 1]);
-% Draw text in the middle of the screen in Georgia in black
+% Draw text in the middle of the screen in Courier in white
 Screen('TextSize', window, 25);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Part 1 of 7', screenXpixels * 0.46, screenYpixels * 0.36, black);
@@ -155,7 +145,7 @@ DrawFormattedText(window, 'X', screenXpixels * 0.41, screenYpixels * 0.70, [1 0 
 Screen('TextSize', window, 25);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Go as fast as you can while being accurate!', screenXpixels * 0.24, screenYpixels * 0.73, black);
-% Draw text in the bottom of the screen in Times in grey
+% Draw text in the bottom of the screen in Times in blue
 Screen('TextSize', window, 30);
 Screen('TextFont', window, 'Times');
 DrawFormattedText(window, 'press any key to continue', screenXpixels * 0.33,...
@@ -2591,7 +2581,6 @@ while tryagain
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Black Americans', 'right' ,...
             screenYpixels * 0.11, [0 1 1]);
-
         % Draw text in the middle of the screen in Courier in white
         Screen('TextSize', window, 25);
         Screen('TextFont', window, 'Georgia');
@@ -2624,6 +2613,7 @@ while tryagain
             screenYpixels * 0.85, grey);
         % Flip to the screen
         Screen('Flip', window);
+        KbStrokeWait;
         tryagain = false;
     elseif keyCode(1,12)~= 1 %anything other than i 
         % Load Instructions (Image 12)
@@ -2664,6 +2654,1997 @@ while tryagain
         Screen('Flip', window); 
         tryagain=true; 
     end 
+end
+
+% START BLOCK 4
+% Load Instructions (Image 1) 
+Screen('TextSize', window, 20);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+   screenYpixels * 0.07, black);
+Screen('TextSize', window, 35);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Black Americans', 'left' ,...
+   screenYpixels * 0.11, [0 1 1]);
+Screen('TextSize', window, 20);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+   screenYpixels * 0.07, black);
+Screen('TextSize', window, 35);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'White Americans', 'right' ,...
+   screenYpixels * 0.11, [0 1 1]);
+
+% Load Image 1 (White American)
+wm1=imread("wm1.jpg"); 
+wm1Texture=Screen('MakeTexture', window, wm1); 
+Screen('DrawTexture', window, wm1Texture, [],[],0); 
+Screen('Flip', window); 
+
+% Create a vector to store block reaction times 
+trial4_times=[]; 
+
+% RESPONSE TO IMAGE 1 (White American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,12)== 1 % i key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 2) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 2 (Black American)
+        bf56=imread("bf56.jpg"); 
+        bf56Texture=Screen('MakeTexture', window, bf56); 
+        Screen('DrawTexture', window, bf56Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,12)~= 1 %anything other than i 
+        % Load Instructions (Image 1)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 1 (White American)
+        Screen('DrawTexture', window, wm1Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
 end 
 
-KbStrokeWait;
+% RESPONSE TO IMAGE 2 (Black American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,8)== 1 % e key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 3) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 3 (Black American)
+        bm14=imread("bm14.jpg"); 
+        bm14Texture=Screen('MakeTexture', window, bm14); 
+        Screen('DrawTexture', window, bm14Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,8)~= 1 %anything other than e 
+        % Load Instructions (Image 2)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 2 (Black American)
+        Screen('DrawTexture', window, bf56Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 3 (Black American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,8)== 1 % e key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 4) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 4 (White American)
+        wf6=imread("wf6.jpg"); 
+        wf6Texture=Screen('MakeTexture', window, wf6); 
+        Screen('DrawTexture', window, wf6Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,8)~= 1 %anything other than e 
+        % Load Instructions (Image 3)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 3 (Black American)
+        Screen('DrawTexture', window, bm14Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 4 (White American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,12)== 1 % i key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 5) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 5 (Black American)
+        bm23=imread("bm23.jpg"); 
+        bm23Texture=Screen('MakeTexture', window, bm23); 
+        Screen('DrawTexture', window, bm23Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,12)~= 1 %anything other than i 
+        % Load Instructions (Image 4)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 4 (White American)
+        Screen('DrawTexture', window, wf6Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 5 (Black American)
+start_time=GetSecs; % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,8)== 1 % e key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 6) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 6 (White American)
+        wm4=imread("wm4.jpg"); 
+        wm4Texture=Screen('MakeTexture', window, wm4); 
+        Screen('DrawTexture', window, wm4Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,8)~= 1 %anything other than e 
+        % Load Instructions (Image 5)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 5 (Black American)
+        Screen('DrawTexture', window, bm23Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 6 (White American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,12)== 1 % i key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 7) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 7 (White American)
+        wf3=imread("wf3.jpg"); 
+        wf3Texture=Screen('MakeTexture', window, wf3); 
+        Screen('DrawTexture', window, wf3Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,12)~= 1 %anything other than i 
+        % Load Instructions (Image 6)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 6 (White American)
+        Screen('DrawTexture', window, wm4Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 7 (White American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,12)== 1 % i key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 8) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 8 (Black American)
+        bf23=imread("bf23.jpg"); 
+        bf23Texture=Screen('MakeTexture', window, bf23); 
+        Screen('DrawTexture', window, bf23Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,12)~= 1 %anything other than i 
+        % Load Instructions (Image 7)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 7 (White American)
+        Screen('DrawTexture', window, wf3Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 8 (Black American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,8)== 1 % e key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 9) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 9 (White American)
+        wf2=imread("wf2.jpg"); 
+        wf2Texture=Screen('MakeTexture', window, wf2); 
+        Screen('DrawTexture', window, wf2Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,8)~= 1 %anything other than e 
+        % Load Instructions (Image 8)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 8 (Black American)
+        Screen('DrawTexture', window, bf23Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 9 (White American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,12)== 1 % i key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 10) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 10 (White American)
+        wm6=imread("wm6.jpg"); 
+        wm6Texture=Screen('MakeTexture', window, wm6); 
+        Screen('DrawTexture', window, wm6Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,12)~= 1 %anything other than i 
+        % Load Instructions (Image 9)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 9 (White American)
+        Screen('DrawTexture', window, wf2Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 10 (White American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,12)== 1 % i key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 11) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 11 (Black American)
+        bf14=imread("bf14.jpg"); 
+        bf14Texture=Screen('MakeTexture', window, bf14); 
+        Screen('DrawTexture', window, bf14Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,12)~= 1 %anything other than i 
+        % Load Instructions (Image 10)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 10 (White American)
+        Screen('DrawTexture', window, wm6Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 11 (Black American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,8)== 1 % e key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial4_times, reactiontime]; 
+        % Load Instructions (Image 12) 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Load Image 12 (Black American)
+        bm56=imread("bm56.jpg"); 
+        bm56Texture=Screen('MakeTexture', window, bm56); 
+        Screen('DrawTexture', window, bm56Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=false; 
+    elseif keyCode(1,8)~= 1 %anything other than e 
+        % Load Instructions (Image 11)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+        screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 11 (Black American)
+        Screen('DrawTexture', window, bf14Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+% RESPONSE TO IMAGE 12 (Black American)
+start_time=GetSecs % Records time of image presentation 
+tryagain=true; 
+while tryagain
+    [secs, keyCode, deltaSecs]=KbPressWait; 
+    if keyCode(1,8)== 1 % e key
+        reactiontime=secs-start_time; 
+        trial4_times=[trial3_times, reactiontime]; 
+        % Load Instruction Screen for Trial 5 
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'left' ,...
+          screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+          screenYpixels * 0.15, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+          screenYpixels * 0.2, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+          screenYpixels * 0.07, black);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+          screenYpixels * 0.15, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+          screenYpixels * 0.2, [0 1 1]);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'right' ,...
+         screenYpixels * 0.11, [0 1 1]);
+
+        % Draw text in the middle of the screen in Courier in white
+        Screen('TextSize', window, 25);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Part 5 of 5', screenXpixels * 0.44, screenYpixels * 0.36, black);
+        Screen('TextSize', window, 25);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Put a left finger on the E key for items that belong to the category', screenXpixels * 0.1, screenYpixels * 0.41, black);
+        Screen('TextSize', window, 30);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', screenXpixels * 0.38, screenYpixels * 0.45, [0 1 1]);
+        Screen('TextSize', window, 25);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'OR', screenXpixels * 0.48, screenYpixels * 0.49, black);
+        Screen('TextSize', window, 30);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Harmless Objects', screenXpixels * 0.43, screenYpixels * 0.53, [0 1 1]);
+        Screen('TextSize', window, 25);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Put a right finger on the I key for items that belong to the category', screenXpixels * 0.1, screenYpixels * 0.6, black);
+        Screen('TextSize', window, 30);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', screenXpixels * 0.38, screenYpixels * 0.65, [0 1 1]);
+        Screen('TextSize', window, 30);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Weapons', screenXpixels * 0.43, screenYpixels * 0.73, [0 1 1]);
+        Screen('TextSize', window, 25);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'OR', screenXpixels * 0.48, screenYpixels * 0.69, black);
+        Screen('TextSize', window, 25);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'If you make a mistake, a red       will appear. Press the other key to continue', screenXpixels * 0.05, screenYpixels * 0.80, black);
+        Screen('TextSize', window, 29);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'X', screenXpixels * 0.41, screenYpixels * 0.8, [1 0 0]);
+        Screen('TextSize', window, 25);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Go as fast as you can while being accurate!', screenXpixels * 0.24, screenYpixels * 0.92, black);
+        % Draw text in the bottom of the screen in Times in blue
+        Screen('TextSize', window, 30);
+        Screen('TextFont', window, 'Times');
+        DrawFormattedText(window, 'press any key to continue', screenXpixels * 0.33,...
+          screenYpixels * 0.85, grey);
+        % Flip to the screen
+        Screen('Flip', window);
+        KbStrokeWait; 
+        tryagain = false
+    elseif keyCode(1,8)~= 1 %anything other than e 
+        % Load Instructions (Image 12)
+         Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+            screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'White Americans', 'left' ,...
+        screenYpixels * 0.11, [0 1 1]);
+        Screen('TextSize', window, 20);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+           screenYpixels * 0.07, black);
+        Screen('TextSize', window, 35);
+        Screen('TextFont', window, 'Georgia');
+        DrawFormattedText(window, 'Black Americans', 'right' ,...
+        screenYpixels * 0.11, [0 1 1]);
+        % Drawing red x on screen 
+        Screen('TextSize', window, 29); 
+        Screen('TextFont', window, 'Georgia'); 
+        DrawFormattedText(window, 'X', screenXpixels*0.5, screenYpixels *0.70, [1 0 0]); 
+        % Load Image 12 (Black American)
+        Screen('DrawTexture', window, bm56Texture, [],[],0); 
+        Screen('Flip', window); 
+        tryagain=true; 
+    end 
+end 
+
+%START IMAGE 1
+%block 5 instructions
+Screen('TextSize', window, 20);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+   screenYpixels * 0.07, black);
+Screen('TextSize', window, 35);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Black Americans', 'left' ,...
+   screenYpixels * 0.11, [0 1 1]);
+Screen('TextSize', window, 20);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+   screenYpixels * 0.15, black);
+Screen('TextSize', window, 35);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+   screenYpixels * 0.2, [0 1 1]);
+Screen('TextSize', window, 20);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+   screenYpixels * 0.07, black);
+Screen('TextSize', window, 20);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+   screenYpixels * 0.15, black);
+Screen('TextSize', window, 35);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+   screenYpixels * 0.2, [0 1 1]);
+Screen('TextSize', window, 35);
+Screen('TextFont', window, 'Georgia');
+DrawFormattedText(window, 'White Americans', 'right' ,...
+   screenYpixels * 0.11, [0 1 1]);
+%Display image 1
+humbrella=imread("humbrella.jpg"); 
+humbrellaTexture = Screen('MakeTexture', window, humbrella); 
+Screen('DrawTexture', window, humbrellaTexture, [], [], 0);  
+Screen('Flip', window);
+
+block5times = []; %initializes vector to store block reaction times
+
+%RESPONSE TO IMAGE 1 (harmless object, press E)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 2)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 2
+    bm23=imread("bm23.jpg"); 
+    bm23Texture = Screen('MakeTexture', window, bm23); 
+    Screen('DrawTexture', window, bm23Texture, [], [], 0); 
+    % Flip image to the screen 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,8) ~= 1 %if anything other than e
+    %Load Instructions (Image 1)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %display image 1 (umbrella)
+    Screen('DrawTexture', window, humbrellaTexture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 2 (black american, press E)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 3)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Display image 3
+    whandgun=imread('whandgun.jpg');
+    whandgunTexture = Screen('MakeTexture', window, whandgun); 
+    Screen('DrawTexture', window, whandgunTexture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,8) ~= 1 %if anything other than e
+    %Load Instructions (Image 2)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Display image 2
+    Screen('DrawTexture', window, bm23Texture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 3 (weapon, press i)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 4)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Display image 4
+    wm4=imread("wm4.jpg"); 
+    wm4Texture = Screen('MakeTexture', window, wm4); 
+    Screen('DrawTexture', window, wm4Texture, [], [], 0); 
+    % Flip image to the screen 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,12) ~= 1 %if anything other than i
+    %Load Instructions (Image 3)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Display image 3
+    whandgun=imread('whandgun.jpg');
+    whandgunTexture = Screen('MakeTexture', window, whandgun); 
+    Screen('DrawTexture', window, whandgunTexture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 4 (white american, press i)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 5)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 5
+    wshotgun=imread("wshotgun.jpg"); 
+    wshotgunTexture=Screen('MakeTexture', window, wshotgun); 
+    Screen('DrawTexture', window, wshotgunTexture, [],[],0); 
+    % Flip image to the screen 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,12) ~= 1 %if anything other than i
+    %Load Instructions (Image 4)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Display image 4
+    wm4=imread("wm4.jpg"); 
+    wm4Texture = Screen('MakeTexture', window, wm4); 
+    Screen('DrawTexture', window, wm4Texture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 5 (weapon, press i)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 6)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 6
+    hnotebook=imread("hnotebook.jpg"); 
+    hnotebookTexture=Screen('MakeTexture', window, hnotebook); 
+    Screen('DrawTexture', window, hnotebookTexture, [],[],0); 
+    % Flip image to the screen 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,12) ~= 1 %if anything other than i
+    %Load Instructions (Image 5)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Load image 5
+    wshotgun=imread("wshotgun.jpg"); 
+    wshotgunTexture=Screen('MakeTexture', window, wshotgun); 
+    Screen('DrawTexture', window, wshotgunTexture, [],[],0); 
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 6 (harmless object, press e)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 7)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 7
+    bm14=imread("bm14.jpg"); 
+    bm14Texture=Screen('MakeTexture', window, bm14); 
+    Screen('DrawTexture', window, bm14Texture, [],[],0); 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,8) ~= 1 %
+    %Load Instructions (Image 6)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Load image 6
+    hnotebook=imread("hnotebook.jpg"); 
+    hnotebookTexture=Screen('MakeTexture', window, hnotebook); 
+    Screen('DrawTexture', window, hnotebookTexture, [],[],0); 
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 7 (Black American, press e)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 7)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 8
+    wm6=imread("wm6.jpg"); 
+    wm6Texture=Screen('MakeTexture', window, wm6); 
+    Screen('DrawTexture', window, wm6Texture, [],[],0); 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,8) ~= 1 %
+    %Load Instructions (Image 6)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Load image 7
+    bm14=imread("bm14.jpg"); 
+    bm14Texture=Screen('MakeTexture', window, bm14); 
+    Screen('DrawTexture', window, bm14Texture, [],[],0); 
+    tryagain = true;
+end
+end
+
+
+%RESPONSE TO IMAGE 8 (White american, press i)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions (Image 8)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 9
+        hwallet=imread("hwallet.jpg"); 
+        hwalletTexture=Screen('MakeTexture', window, hwallet); 
+        Screen('DrawTexture', window, hwalletTexture, [],[],0); 
+        Screen('Flip', window); 
+    tryagain = false;
+elseif keyCode(1,12) ~= 1 %i
+    %Load Instructions (Image 6)
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Load image 8
+    wm6=imread("wm6.jpg"); 
+    wm6Texture=Screen('MakeTexture', window, wm6); 
+    Screen('DrawTexture', window, wm6Texture, [],[],0); 
+    Screen('Flip', window);
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 9 (harmless object, press e)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 10
+    wdynamite=imread("wdynamite.jpg"); 
+    wdynamiteTexture=Screen('MakeTexture', window, wdynamite); 
+    Screen('DrawTexture', window, wdynamiteTexture, [],[],0); 
+    Screen('Flip', window); 
+    tryagain = false;
+elseif keyCode(1,8) ~= 1 %e
+    %Load Instructions
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Load image 9
+    hwallet=imread("hwallet.jpg"); 
+    hwalletTexture=Screen('MakeTexture', window, hwallet); 
+    Screen('DrawTexture', window, hwalletTexture, [],[],0); 
+    Screen('Flip', window); 
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 10 (weapon, press i)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 11
+    bf23=imread("bf23.jpg"); 
+    bf23Texture = Screen('MakeTexture', window, bf23); 
+    Screen('DrawTexture', window, bf23Texture, [], [], 0); 
+    Screen('Flip', window); 
+    tryagain = false;
+elseif keyCode(1,12) ~= 1 %i
+    %Load Instructions
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %load image 10
+    wdynamite=imread("wdynamite.jpg"); 
+    wdynamiteTexture=Screen('MakeTexture', window, wdynamite); 
+    Screen('DrawTexture', window, wdynamiteTexture, [],[],0); 
+    Screen('Flip', window); 
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 11 (Black american, press e)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,8) == 1 %e
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    %Load Instructions
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %Load image 12
+    wf2=imread("wf2.jpg"); 
+    wf2Texture = Screen('MakeTexture', window, wf2); 
+    Screen('DrawTexture', window, wf2Texture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = false;
+elseif keyCode(1,8) ~= 1 %e
+    %Load Instructions
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Load image 11
+    bf23=imread("bf23.jpg"); 
+    bf23Texture = Screen('MakeTexture', window, bf23); 
+    Screen('DrawTexture', window, bf23Texture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = true;
+end
+end
+
+%RESPONSE TO IMAGE 12 (White american, press i)
+
+start_time = GetSecs; %records time of image presentation
+tryagain = true; %sets condition for if statement to run
+while tryagain
+[secs, keyCode, deltaSecs] = KbPressWait;
+if keyCode(1,12) == 1 %i
+    reactiontime = secs - start_time; %assign reaction time to this variable
+    block5times = [block5times, reactiontime]; %adds rt from this trial to block rt vector
+    Screen('TextSize', window, 30);
+    Screen('TextFont', window, 'Times');
+    DrawFormattedText(window, 'press any key to see your result', screenXpixels * 0.28,...
+   screenYpixels * 0.5, grey);
+    % Flip to the screen
+    Screen('Flip', window);
+    KbStrokeWait;
+    tryagain = false;
+elseif keyCode(1,12) ~= 1 %i
+    %Load Instructions
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press E for', screenXpixels * 0.07 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Black Americans', 'left' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.1 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Harmless Objects', 'left' ,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Press I for', screenXpixels * 0.82 ,...
+       screenYpixels * 0.07, black);
+    Screen('TextSize', window, 20);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'OR', screenXpixels * 0.85 ,...
+       screenYpixels * 0.15, black);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'Weapons', screenXpixels * 0.78,...
+       screenYpixels * 0.2, [0 1 1]);
+    Screen('TextSize', window, 35);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'White Americans', 'right' ,...
+       screenYpixels * 0.11, [0 1 1]);
+    %drawing red 'X' on screen
+    Screen('TextSize', window, 29);
+    Screen('TextFont', window, 'Georgia');
+    DrawFormattedText(window, 'X', screenXpixels * 0.5, screenYpixels * 0.70, [1 0 0]);
+    %Load image 12
+    wf2=imread("wf2.jpg"); 
+    wf2Texture = Screen('MakeTexture', window, wf2); 
+    Screen('DrawTexture', window, wf2Texture, [], [], 0); 
+    Screen('Flip', window);
+    tryagain = true;
+end
+end
+
+%ANALYZING THE SCORE - Paloma spent 1 hour writing this
+
+%assuming we store reaction times a vector for each block:
+block3meanrt = mean(trial3_times); %stores the mean reaction time for block 1
+block5meanrt = mean(block5times);
+
+%calculating the D-score (measure of implicit bias):
+pooledblocks3and5 = [trial3_times, block5times];
+finalDscore = (block6meanrt - block3meanrt)/std(pooledblocks3and6);
+
+%if statement interprets d-score and stores in level_of_bias 
+if finalDscore <= 0.15
+    Screen('TextSize', window, 15);
+    Screen('TextFont', window, 'Times');
+    DrawFormattedText(window, 'Your results do not indicate bias', 'center',...
+   screenYpixels * 0.4, black);
+    Screen('Flip', window);
+elseif finalDscore > 0.15 && finalDscore < 0.35
+    Screen('TextSize', window, 15);
+    Screen('TextFont', window, 'Times');
+    DrawFormattedText(window, 'Your results indicate a low level of bias', 'center',...
+   screenYpixels * 0.4, black);
+    Screen('Flip', window);
+elseif finalDscore >= 0.35 && finalDscore < 0.65
+    Screen('TextSize', window, 15);
+    Screen('TextFont', window, 'Times');
+    DrawFormattedText(window, 'Your results indicate a moderate level of bias', 'center',...
+   screenYpixels * 0.4, black);
+    Screen('Flip', window);
+elseif finalDscore >= 0.65
+    Screen('TextSize', window, 15);
+    Screen('TextFont', window, 'Times');
+    DrawFormattedText(window, 'Your results indicate a high level of bias', 'center',...
+   screenYpixels * 0.4, black);
+    Screen('Flip', window);
+end
+
+
