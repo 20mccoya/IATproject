@@ -13,7 +13,8 @@
 % correct slide folowing a key press. The team had difficulty with the key stroke function because the function would work sporatically, and only on some 
 % of the group's computers. This drove up debugging time to get the function working. This was a recurring issue for the team that took lots of
 % debugging and research. Once Ashley figured out how to formatted the first slide of text, she formatted the rest of the text for the IAT. Each slide of
-% text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text. 
+% text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text. She also spent 3 hours working to 
+% code and debug the section of code to have the images show up in specific spots on the grid on the second slide. 
 
 %Paloma spent 7 hours trying to figure out how to get the specific E and I
 %keypresses, and then how to record reaction times. She also spent 4 hours
