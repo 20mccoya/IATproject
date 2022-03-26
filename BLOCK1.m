@@ -13,7 +13,7 @@
 % correct slide folowing a key press. The team had difficulty with the key stroke function because the function would work sporatically, and only on some 
 % of the group's computers. This drove up debugging time to get the function working. This was a recurring issue for the team that took lots of
 % debugging and research. Once Ashley figured out how to formatted the first slide of text, she formatted the rest of the text for the IAT. Each slide of
-% text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text, for each of the trial slides. 
+% text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text. 
 
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
