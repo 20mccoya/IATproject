@@ -15,6 +15,13 @@
 % debugging and research. Once Ashley figured out how to formatted the first slide of text, she formatted the rest of the text for the IAT. Each slide of
 % text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text. 
 
+%Paloma spent 7 hours trying to figure out how to get the specific E and I
+%keypresses, and then how to record reaction times. She also spent 4 hours
+%coding both trials 1 and 5. Her computer was the only computer the code
+%would run on so she also spent 5 hours debugging her groupmate's codes.
+%She spent an hour using the reaction times to analyze, interpret, and
+%display the result.
+
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
