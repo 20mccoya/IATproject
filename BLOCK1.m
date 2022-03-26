@@ -105,6 +105,105 @@ Screen('TextSize', window, 20);
 Screen('TextFont', window, 'Times');
 DrawFormattedText(window, 'There are seven parts. The instructions change for each part. Pay attention!', screenXpixels * 0.05,...
    screenYpixels * 0.83, black);
+   
+% Ashley wrote this code for formatting the images on the screen. It took
+% around 3 hours to look at the image demos and debug the code so that each
+% picture showed up in the correct spot. 
+bf14=imread("bf14.jpg"); 
+bf23=imread("bf23.jpg"); 
+bm14=imread("bm14.jpg");
+bm23=imread("bm23.jpg");
+bf56=imread("bf56.jpg"); 
+bm56=imread("bm56.jpg");
+         
+
+wm1=imread("wm1.jpg"); 
+wf2=imread("wf2.jpg");  
+wf3=imread("wf3.jpg"); 
+wm4=imread("wm4.jpg"); 
+wf6=imread("wf6.jpg"); 
+wm6=imread("wm6.jpg");
+
+hbackpack=imread("hbackpack.jpg"); 
+hkeychain=imread("hkeychain.jpg"); 
+humbrella=imread("humbrella.jpg");
+hnotebook=imread("hnotebook.jpg");
+htoothbrush=imread("htoothbrush.jpg"); 
+hwallet=imread("hwallet.jpg"); 
+
+wdynamite=imread("wdynamite.jpg"); 
+wautomaticrifle=imread("wautomaticrifle.jpg"); 
+wbrassknuckles=imread("wbrassknuckles.jpg"); 
+wshotgun=imread("wshotgun.jpg"); 
+whandgunTexture = Screen('MakeTexture', window, whandgun); 
+wknife=imread("wknife.jpg"); 
+
+Tbf14 = Screen('MakeTexture', window, bf14);
+Tbf23 = Screen('MakeTexture', window, bf23);
+Tbm14= Screen('MakeTexture', window, bm14);
+Tbm23 = Screen('MakeTexture', window, bm23);
+Tbf56 = Screen('MakeTexture', window, bf56);
+Tbm56 = Screen('MakeTexture', window, bm56);
+
+Twm1 = Screen('MakeTexture', window, wm1);
+Twf2 = Screen('MakeTexture', window, wf2);
+Twf3 = Screen('MakeTexture', window, wf3);
+Twm4 = Screen('MakeTexture', window, wm4);
+Twf6 = Screen('MakeTexture', window, wf6);
+Twm6 = Screen('MakeTexture', window, wm6);
+
+Thbackpack = Screen('MakeTexture', window, hbackpack);
+Thkeychain = Screen('MakeTexture', window, hkeychain);
+Thumbrella = Screen('MakeTexture', window, humbrella);
+Thnotebook = Screen('MakeTexture', window, hnotebook);
+Thtoothbrush = Screen('MakeTexture', window, htoothbrush);
+Thwallet = Screen('MakeTexture', window, hwallet);
+
+Twdynamite = Screen('MakeTexture', window, wdynamite);
+Twautomaticrifle = Screen('MakeTexture', window, wautomaticrifle);
+Twbrassknuckles = Screen('MakeTexture', window, wbrassknuckles);
+Twshotgun = Screen('MakeTexture', window, wshotgun);
+Twhandgun = Screen('MakeTexture', window, whandgun);
+Twknife= Screen('MakeTexture', window, wknife);
+
+P = [Tbf14 Tbf23 Tbm14 Tbm23 Tbf56 Tbm56 Twm1 Twf2 Twf3 Twm4 Twf6 Twm6 Thbackpack Thkeychain Thumbrella Thnotebook Thtoothbrush Thwallet Twdynamite Twautomaticrifle Twbrassknuckles Twshotgun Twhandgun Twknife]; 
+
+%makes a position for each image
+l31 = CenterRectOnPointd([0 0 90 90], xCenter*.69, yCenter*.78)';
+l32 = CenterRectOnPointd([0 0 90 90], xCenter*.89, yCenter*.78)';
+l33 = CenterRectOnPointd([0 0 90 90], xCenter*1.09, yCenter*.78)';
+l34 = CenterRectOnPointd([0 0 90 90], xCenter*1.29, yCenter*.78)';
+l35 = CenterRectOnPointd([0 0 90 90], xCenter*1.49, yCenter*.78)';
+l36 = CenterRectOnPointd([0 0 90 90], xCenter*1.69, yCenter*.78)';
+
+l41 = CenterRectOnPointd([0 0 90 90], xCenter*.69, yCenter*1)';
+l42 = CenterRectOnPointd([0 0 90 90], xCenter*.89, yCenter*1)';
+l43 = CenterRectOnPointd([0 0 90 90], xCenter*1.09, yCenter*1)';
+l44 = CenterRectOnPointd([0 0 90 90], xCenter*1.29, yCenter*1)';
+l45 = CenterRectOnPointd([0 0 90 90], xCenter*1.49, yCenter*1)';
+l46 = CenterRectOnPointd([0 0 90 90], xCenter*1.69, yCenter*1)';
+
+l11 = CenterRectOnPointd([0 0 90 90], xCenter*.69, yCenter*1.22)';
+l12 = CenterRectOnPointd([0 0 90 90], xCenter*.89, yCenter*1.22)';
+l13 = CenterRectOnPointd([0 0 90 90], xCenter*1.09, yCenter*1.22)';
+l14 = CenterRectOnPointd([0 0 90 90], xCenter*1.29, yCenter*1.22)';
+l15 = CenterRectOnPointd([0 0 90 90], xCenter*1.49, yCenter*1.22)';
+l16 = CenterRectOnPointd([0 0 90 90], xCenter*1.69, yCenter*1.22)';
+
+l21 = CenterRectOnPointd([0 0 90 90], xCenter*.69, yCenter*1.44)';
+l22 = CenterRectOnPointd([0 0 90 90], xCenter*.89, yCenter*1.44)';
+l23 = CenterRectOnPointd([0 0 90 90], xCenter*1.09, yCenter*1.44)';
+l24 = CenterRectOnPointd([0 0 90 90], xCenter*1.29, yCenter*1.44)';
+l25 = CenterRectOnPointd([0 0 90 90], xCenter*1.49, yCenter*1.44)';
+l26 = CenterRectOnPointd([0 0 90 90], xCenter*1.69, yCenter*1.44)';
+l = [l11 l12 l13 l14 l15 l16 l21 l22 l23 l24 l25 l26 l31 l32 l33 l34 l35 l36 l41 l42 l43 l44 l45 l46]
+
+% Draw images to the screen, uses the two vectors to assign each image
+% a particular spot on the screen
+Screen('DrawTextures', window, P, [],l, 0); 
+% Flip image to the screen 
+Screen('Flip', window); 
+   
 % Flip to the screen
 Screen('Flip', window);
 KbStrokeWait;
