@@ -1,3 +1,8 @@
+% As a group we each spent 8 hours in class, at the Pscyhtoolbox tutorial section, and had independent meetings where we researched
+% the IAT, downloaded Github and Psychtoolbox, and figured out how exactly what functions we would need for our project. 
+
+% We then spent another 2 hours on March 24th putting all of the individual parts together and debugging out overall code.  
+
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
