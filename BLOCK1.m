@@ -4796,29 +4796,29 @@ block5meanrt = mean(block5times);
 
 %calculating the D-score (measure of implicit bias):
 pooledblocks3and5 = [trial3_times, block5times];
-finalDscore = (block5meanrt - block3meanrt)/std(pooledblocks3and6);
+finalDscore = (block5meanrt - block3meanrt)/std(pooledblocks3and5);
 
 %if statement interprets d-score and stores in level_of_bias 
 if finalDscore <= 0.15
-    Screen('TextSize', window, 15);
+    Screen('TextSize', window, 22);
     Screen('TextFont', window, 'Times');
     DrawFormattedText(window, 'Your results do not indicate bias', 'center',...
    screenYpixels * 0.4, black);
     Screen('Flip', window);
 elseif finalDscore > 0.15 && finalDscore < 0.35
-    Screen('TextSize', window, 15);
+    Screen('TextSize', window, 22);
     Screen('TextFont', window, 'Times');
     DrawFormattedText(window, 'Your results indicate a low level of bias', 'center',...
    screenYpixels * 0.4, black);
     Screen('Flip', window);
 elseif finalDscore >= 0.35 && finalDscore < 0.65
-    Screen('TextSize', window, 15);
+    Screen('TextSize', window, 22);
     Screen('TextFont', window, 'Times');
     DrawFormattedText(window, 'Your results indicate a moderate level of bias', 'center',...
    screenYpixels * 0.4, black);
     Screen('Flip', window);
 elseif finalDscore >= 0.65
-    Screen('TextSize', window, 15);
+    Screen('TextSize', window, 22);
     Screen('TextFont', window, 'Times');
     DrawFormattedText(window, 'Your results indicate a high level of bias', 'center',...
    screenYpixels * 0.4, black);
