@@ -2758,9 +2758,9 @@ while tryagain
             screenYpixels * 0.07, black);
         Screen('TextSize', window, 35);
         Screen('TextFont', window, 'Georgia');
-        DrawFormattedText(window, 'Black Americans', 'right' ,...
+        DrawFormattedText(window, 'White Americans', 'right' ,...
             screenYpixels * 0.11, [0 1 1]);
-        % Draw text in the middle of the screen in Courier in white
+        % Draw text in the middle of the screen in Georgia in white
         Screen('TextSize', window, 25);
         Screen('TextFont', window, 'Georgia');
         DrawFormattedText(window, 'Part 4 of 5', screenXpixels * 0.44, screenYpixels * 0.36, black);
