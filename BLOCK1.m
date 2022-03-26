@@ -55,7 +55,10 @@ DrawFormattedText(window, 'press any key to continue', 'center',...
 % Flip to the screen
 Screen('Flip', window);
 KbStrokeWait;
-%% slide 2 starts here
+%% slide 2 starts heres. To code the grid shape, Ashley spent around 2 hours to read and debug the polygon demo for psychtoolbox and another hour to 
+% write the code for the grid. 
+
+
 Screen('TextSize', window, 35);
 Screen('TextFont', window, 'Georgia');
 DrawFormattedText(window, 'Implicit Association Test', screenXpixels * 0.03 ,...
