@@ -3,6 +3,18 @@
 
 % We then spent another 2 hours on March 24th putting all of the individual parts together and debugging out overall code.  
 
+% Ashley formatted the text on the opening slide. She spent around 6 hours learning about psychtoolbox and breaking down demos in order to understand how 
+% the different aspects of psychtoolbox worked together. Once she understood how to set up the screens, windows, and how to "flip" the screens, she 
+% formatted the text in the window appropriately. It took longer to debug because the line: "Screen('Preference','SkipSyncTests',1)" was missing
+% in order for the window to show up on the mac computers. She also attended, with her teammates, a 2 hour psychtoolbox tutorial that Haley and 
+% Ivan offered early on in the project timeline. Once the mechanics of psychtoolbox were figured out, it took a half hour for her to properly format the 
+% slide, getting the spacing correct as well as the sizing. Ashley also worked to research how to make the code react to key strokes. This took
+% around 3 hours to research through psychtoolbox demos and 4 additional hours to code and debug the code so that the flipped window would switch to the
+% correct slide folowing a key press. The team had difficulty with the key stroke function because the function would work sporatically, and only on some 
+% of the group's computers. This drove up debugging time to get the function working. This was a recurring issue for the team that took lots of
+% debugging and research. Once Ashley figured out how to formatted the first slide of text, she formatted the rest of the text for the IAT. Each slide of
+% text has different positions, sizes, and dimensions. It took around 6 hours to format the rest of the program's text, for each of the trial slides. 
+
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
