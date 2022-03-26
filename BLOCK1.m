@@ -27,17 +27,16 @@ screenNumber = max(screens);
 black = BlackIndex(screenNumber);
 white = WhiteIndex(screenNumber);
 grey = white / 2;
-% Open an on screen window and color it grey
+% Open an on screen window and color it white
 [window, windowRect] = PsychImaging('OpenWindow', screenNumber, white, [0,0 , 900,900]);
 % Set the blend funciton for the screen
 Screen('BlendFunction', window, 'GL_SRC_ALPHA', 'GL_ONE_MINUS_SRC_ALPHA');
 % Get the size of the on screen window in pixels
-% For help see: Screen WindowSize?
 [screenXpixels, screenYpixels] = Screen('WindowSize', window);
 % Get the centre coordinate of the window in pixels
-% For help see: help RectCenter
+
 [xCenter, yCenter] = RectCenter(windowRect);
-% Draw text in the upper portion of the screen with the default font in
+% Draw text in the upper portion of the screen with the Georgia font in
 % black
 Screen('TextSize', window, 80);
 Screen('TextFont', window, 'Georgia');
