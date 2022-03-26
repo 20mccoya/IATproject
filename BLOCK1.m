@@ -23,6 +23,17 @@
 %She spent an hour using the reaction times to analyze, interpret, and
 %display the result.
 
+% Hayley spent about 5 hours experimenting with Psychtoolbox and writing the code to make the images appear with a keypress. She used the code that Ashley 
+% wrote for the intro and instruction slides and implemented the image appearance and keyboard press functions to figure out how to make the images respond to 
+% the keyboard presses and prevent the instructions from moving throughout the trial. Hayley then spent about 5 hours writing code for trial 2. This includes 
+% the time spent in office hours trying to figure out why the keyboard presses were not working on her laptop. Because her keypress never ended up working, 
+% Paloma ran the code and sent Hayley the changes that she had to make. She then spent another hour debugging this code, making it so that certain images     
+% would only respond to specific keypresses and making sure reaction times were being recorded. Hayley spent another 8 hours writing the code for trials 3 and 
+% 4, utilizing the code from trial 2 and going through line by line to change the images and keypresses associated with those trial conditions. These hours 
+% are in addition to the 8 hours she spent with her teammates in class, the Psychtoolbox tutorial section, and in independent meetings. This time was devoted 
+% to reseraching the IAT, dividing the workload, downloading Github and Psychtoolbox, figuring out the exact functions needed to make out code run, and how 
+% to implement these functions. 
+
 % Here we call some default settings for setting up Psychtoolbox
 Screen('Preference', 'SkipSyncTests', 1);
 PsychDefaultSetup(2);
